@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: doomsdaydevice
+    labels:
+        project: arcturus
+spec:
+    replicas: 5
+    selector:
+        matchLabels:
+            project: arcturus
+    template:
+        metadata: 
+            labels:
+                project: arcturus
+        spec:
+            containers:
+                    - name: doomsdaydevice-minions
+                      image: httpd
+                      ports:
+                             - containerPort: 80
